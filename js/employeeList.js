@@ -31,6 +31,24 @@ let empList=[
 {id:'SEL563',name:'DEEPA'},
 {id:'SEL564',name:'DEEPIKA S'},
 {id:'SEL 501',name:'SELVA KUMAR'},
-{id:'SEL572',name:'yasotha'}
+{id:'SEL572',name:'yasotha'},
+{id:'SEL573',name:'RAMYA .G'},
+{id:'SEL574',name:'LAVANYA.N'},
+{id:'SEL575',name:'ROOPA.RS'},
+{id:'SEL576',name:'LAKSHMI'},
+{id:'SEL577',name:'SOWBHAGHYA'},
+{id:'SEL578',name:'ARUN.G.V'},
+{id:'SEL579',name:'KIRAN'},
+{id:'SEL580',name:'YESUBALRAJ.R'},
+{id:'SEL581',name:'RAMESHBABU.A'},
+{id:'SEL582',name:'RAVALI.K'},
+{id:'SEL583',name:'UMANDEVI.TS'},
+{id:'SEL584',name:'PRAVEEN KUMAR'},
+{id:'SEL585',name:'RAMYA SHREE.S'},
+{id:'SEL586',name:'PAVITHRA.MB'},
+{id:'SEL587',name:'SATHISHKUMAR.T'},
+{id:'SEL588',name:'KALPANA'},
+{id:'SEL589',name:'NARSIMAMURTHY'},
+
 
 ]
