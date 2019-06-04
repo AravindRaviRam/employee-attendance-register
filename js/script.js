@@ -1,7 +1,8 @@
-let video = document.createElement("video");
+﻿let video = document.createElement("video");
 let canvasElement = document.getElementById("canvas");
 let canvas = canvasElement.getContext("2d");
 let outputContainer = document.getElementById("output");
+let empInputValue =document.getElementById("empInputValue");
 
 const drawLine =(begin, end, color)=>{
       canvas.beginPath();
@@ -32,6 +33,7 @@ const drawLine =(begin, end, color)=>{
         let code = jsQR(imageData.data, imageData.width, imageData.height, {
           inversionAttempts: "dontInvert",
         });
+
   let putAtten=(emp)=>{
     let empData=emp.split("_");
     let empid=empData[0];
@@ -39,13 +41,11 @@ const drawLine =(begin, end, color)=>{
     let comname=empData[2];
     let netcheck =navigator.onLine;
     if(comname==="SELCHIN ONLINE SERVICE" && netcheck===true){
-       var win = window.open('https://docs.google.com/forms/d/e/1FAIpQLSd_BiHOYeErNfyfYy46StWupIhOKnSZqbrqpRNAkW_mxeIdpw/formResponse?usp=pp_url&entry.547707860='+ empid +'&entry.455394488='+ empName);
-        setTimeout(function () { win.close();}, 4000);
-
+      startRegisterAttendance(empid,empName);
+        // var win = window.open('https://docs.google.com/forms/d/e/1FAIpQLSd_BiHOYeErNfyfYy46StWupIhOKnSZqbrqpRNAkW_mxeIdpw/formResponse?usp=pp_url&entry.547707860='+ empid +'&entry.455394488='+ empName);
+        //  setTimeout(function () { win.close();}, 4000);
     }else{
-
-      alert("Sorry Your ID is Invalid  or Please Check your Internet Connection");
-
+      alert("Sorry Your ID is Invalid  (or) Please Check your Internet Connection");
     }
   }
       let empinfo;
@@ -91,3 +91,27 @@ const drawLine =(begin, end, color)=>{
                 },500);
             }
             currentTime();
+
+const goToReg=()=>{
+  let inputEmp=(empInputValue.value).toUpperCase();
+  // console.log(inputEmp.substring(0,3))
+  //  console.log(inputEmp.length)
+  empInputValue.value="";
+  if(inputEmp.length===6 && inputEmp.substring(0,3) === "SEL"){
+    const isIdThere=empList.find(aObj=>aObj.id===inputEmp);
+    // console.log(isIdThere.id)
+    // console.log(isIdThere.name)
+     startRegisterAttendance(isIdThere.id,isIdThere.name)
+    //startRegisterAttendance(isIdThere.id,isIdThere.name);
+  }else{
+
+    alert("Sorry! Wrong Emp ID");
+    empInputValue.value="";
+
+  }
+}
+document.getElementById("regButton").addEventListener('click', goToReg);
+const startRegisterAttendance=(EmpId,EmpName)=>{
+  var win = window.open('https://docs.google.com/forms/d/e/1FAIpQLSd_BiHOYeErNfyfYy46StWupIhOKnSZqbrqpRNAkW_mxeIdpw/formResponse?usp=pp_url&entry.547707860='+ EmpId +'&entry.455394488='+ EmpName);
+  setTimeout(function () { win.close();}, 4000);
+}
